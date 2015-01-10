@@ -10,6 +10,9 @@ import android.support.v4.app.NotificationCompat;
 import android.support.v4.app.NotificationManagerCompat;
 import android.util.Log;
 
+import java.util.Timer;
+import java.util.TimerTask;
+
 /**
  * Created by anthony on 1/10/15.
  */
@@ -42,7 +45,8 @@ public class DataService extends Service {
 
 
 
-        (new Handler()).postDelayed(new Runnable() {
+        Timer timer = new Timer();
+        TimerTask doAsynchronousTask = new TimerTask() {
             @Override
             public void run() {
                 float accel = collector.getAccelerometerAvg();
@@ -66,7 +70,9 @@ public class DataService extends Service {
                 }
 
             }
-        },INTERVAL_QUERY);
+        };
+
+        timer.schedule(doAsynchronousTask, 0, INTERVAL_QUERY);
     }
 
     public void sendNotification(){
