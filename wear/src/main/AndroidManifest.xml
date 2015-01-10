@@ -2,7 +2,14 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.sedanza" >
 
+<<<<<<< Updated upstream
     <uses-feature android:name="android.hardware.type.watch" /> <!-- IMPORTANT!!! -->
+=======
+    <uses-feature android:name="android.hardware.type.watch" />
+    <uses-feature android:name="android.hardware.sensor.accelerometer" android:required="true" />
+    <uses-feature android:name="android.hardware.sensor.stepcounter" android:required="true" />
+    <uses-feature android:name="android.hardware.sensor.stepdetector" android:required="true" />
+>>>>>>> Stashed changes
 
     <application
         android:allowBackup="true"
