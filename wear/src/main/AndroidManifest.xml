@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.sedanza" >
 
-    <uses-feature android:name="android.hardware.type.watch" />
+    <uses-feature android:name="android.hardware.type.watch" /> <!-- IMPORTANT!!! -->
 
     <application
         android:allowBackup="true"
@@ -18,6 +18,16 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <service android:name=".DataService"></service>
+        <receiver android:name=".StartReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+            </intent-filter>
+        </receiver>
+
+        <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+
     </application>
 
 </manifest>
